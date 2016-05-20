@@ -1,4 +1,18 @@
 Rails.application.routes.draw do
+  resources :products
+
+  resources :movements
+
+  resources :configurations
+
+  resources :motives
+
+  resources :categories
+
+  resources :brands
+
+  resources :people
+
   get 'welcome/index'
 
   # The priority is based upon order of creation: first created -> highest priority.

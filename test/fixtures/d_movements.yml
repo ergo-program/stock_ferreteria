@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  movement_id: 
+  product_id: 
+  cantidad: 1
+
+two:
+  movement_id: 
+  product_id: 
+  cantidad: 1

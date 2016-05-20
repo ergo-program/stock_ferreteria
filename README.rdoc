@@ -26,3 +26,12 @@ Things you may want to cover:
 
 Please feel free to use a different markup language if you do not plan to run
 <tt>rake doc:app</tt>.
+
+rails g scaffold person nombre telefono direccion documento tipo
+rails g scaffold brand nombre 
+rails g scaffold category nombre
+rails g scaffold motive descripcion
+rails g scaffold configuration nombre direccion telefono email imagen tiempo_espera:integer
+rails g scaffold movement fecha:date motive:references tipo person:references
+rails g model d_movement movement:references product:references cantidad:integer
+rails g scaffold product codigo:integer nombre descripcion unidad_medida costo:decimal precio_venta:decimal cantidad:integer canitdad_min:integer brand:references category:references

@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  fecha: 2016-05-19
+  motive_id: 
+  tipo: MyString
+  person_id: 
+
+two:
+  fecha: 2016-05-19
+  motive_id: 
+  tipo: MyString
+  person_id: 
