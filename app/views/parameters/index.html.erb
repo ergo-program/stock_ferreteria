@@ -1,10 +1,10 @@
 <% content_for :content_header  do %>
   <section class="content-header">
-    <h1>Listing <small>configurations</small></h1>
+    <h1>Listing <small>parameters</small></h1>
 
     <ol class="breadcrumb">
       <li><a href="/"><i class="fa fa-dashboard"></i> Home</a></li>
-      <li class="active">configurations</li>
+      <li class="active">parameters</li>
     </ol>    
   </section>
 <% end %>
@@ -15,9 +15,9 @@
       <div class="box box-primary">
         <div class="box-header">
           <div class="box-tools pull-right">
-            <%= link_to new_configuration_path(@configuration), :class => 'btn btn-success' do %>
+            <%= link_to new_parameter_path(@parameter), :class => 'btn btn-success' do %>
               <span class="glyphicon glyphicon-plus"></span>
-              New Configuration
+              New Parameter
             <% end %>          
           </div>
         </div>
@@ -37,16 +37,16 @@
               </tr>
             </thead>
             <tbody>
-              <%= content_tag_for(:tr, @configurations) do |configuration| %>
-              <td><%= configuration.nombre %></td>
-              <td><%= configuration.direccion %></td>
-              <td><%= configuration.telefono %></td>
-              <td><%= configuration.email %></td>
-              <td><%= configuration.imagen %></td>
-              <td><%= configuration.tiempo_espera %></td>
-                            <td><%= link_to 'Show', configuration %></td>
-                <td><%= link_to 'Edit', edit_configuration_path(configuration) %></td>
-                <td><%= link_to 'Destroy', configuration, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+              <%= content_tag_for(:tr, @parameters) do |parameter| %>
+              <td><%= parameter.nombre %></td>
+              <td><%= parameter.direccion %></td>
+              <td><%= parameter.telefono %></td>
+              <td><%= parameter.email %></td>
+              <td><%= parameter.imagen %></td>
+              <td><%= parameter.tiempo_espera %></td>
+                            <td><%= link_to 'Show', parameter %></td>
+                <td><%= link_to 'Edit', edit_parameter_path(parameter) %></td>
+                <td><%= link_to 'Destroy', parameter, method: :delete, data: { confirm: 'Are you sure?' } %></td>
               <% end %>
             </tbody>
           </table>

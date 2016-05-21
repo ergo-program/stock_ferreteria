@@ -1,14 +1,14 @@
 <section class="content invoice">
   <div class="row">
     <div class="col-md-10">
-      <%= form_for(@configuration, :html => { :role => "form" }) do |f| %>
-        <% if @configuration.errors.any? %>
+      <%= form_for(@parameter, :html => { :role => "form" }) do |f| %>
+        <% if @parameter.errors.any? %>
           <div class="alert alert-danger alert-dismissable" role="alert">
             <button type="button" class="close" data-dismiss="alert" aria-hidden="true">x</button>
-            <h4><%= pluralize(@configuration.errors.count, "error") %> prohibited this configuration from being saved:</h4>
+            <h4><%= pluralize(@parameter.errors.count, "error") %> prohibited this parameter from being saved:</h4>
 
             <ul>
-            <% @configuration.errors.full_messages.each do |msg| %>
+            <% @parameter.errors.full_messages.each do |msg| %>
               <li><%= msg %></li>
             <% end %>
             </ul>

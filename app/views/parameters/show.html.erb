@@ -1,10 +1,10 @@
 <% content_for :content_header  do %>
   <section class="content-header">
-    <h1>Show <small>configuration</small></h1>
+    <h1>Show <small>parameter</small></h1>
 
     <ol class="breadcrumb">
       <li><a href="/"><i class="fa fa-dashboard"></i> Home</a></li>
-      <li><%= link_to "Configurations", configurations_path %></li>
+      <li><%= link_to "Parameters", parameters_path %></li>
       <li class="active">Show</li>
     </ol>
   </section>
@@ -16,7 +16,7 @@
       <div class="box box-primary">
         <div class="box-header">
           <div class="box-tools pull-right">
-            <%= link_to edit_configuration_path(@configuration), :class => 'btn btn-primary' do %>
+            <%= link_to edit_parameter_path(@parameter), :class => 'btn btn-primary' do %>
               <span class="glyphicon glyphicon-pencil"></span>
               Edit
             <% end %>          
@@ -25,22 +25,22 @@
         <div class="box-body">
           <dl class="dl-horizontal">
             <dt>Nombre:</dt>
-            <dd><%= @configuration.nombre %></dd>
+            <dd><%= @parameter.nombre %></dd>
 
             <dt>Direccion:</dt>
-            <dd><%= @configuration.direccion %></dd>
+            <dd><%= @parameter.direccion %></dd>
 
             <dt>Telefono:</dt>
-            <dd><%= @configuration.telefono %></dd>
+            <dd><%= @parameter.telefono %></dd>
 
             <dt>Email:</dt>
-            <dd><%= @configuration.email %></dd>
+            <dd><%= @parameter.email %></dd>
 
             <dt>Imagen:</dt>
-            <dd><%= @configuration.imagen %></dd>
+            <dd><%= @parameter.imagen %></dd>
 
             <dt>Tiempo espera:</dt>
-            <dd><%= @configuration.tiempo_espera %></dd>
+            <dd><%= @parameter.tiempo_espera %></dd>
 
           </dl>
         </div>

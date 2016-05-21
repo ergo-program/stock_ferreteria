@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
+  resources :parameters
+
   resources :products
 
   resources :movements
-
-  resources :configurations
 
   resources :motives
 
