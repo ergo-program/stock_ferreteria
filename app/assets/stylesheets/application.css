@@ -14,3 +14,8 @@
  *= require dataTables/jquery.dataTables
  *= require_self
  */
+
+/*Estilo de popover*/
+.popover-content{
+  word-break: break-word;
+}

@@ -1,11 +1,11 @@
 <% content_for :content_header  do %>
   <section class="content-header">
-    <h1>Show <small>product</small></h1>
+    <h1>Ver <small>productos</small></h1>
 
     <ol class="breadcrumb">
-      <li><a href="/"><i class="fa fa-dashboard"></i> Home</a></li>
-      <li><%= link_to "Products", products_path %></li>
-      <li class="active">Show</li>
+      <li><a href="/"><i class="fa fa-dashboard"></i> Inicio</a></li>
+      <li><%= link_to "Productos", products_path %></li>
+      <li class="active">Ver</li>
     </ol>
   </section>
 <% end %>
@@ -18,7 +18,7 @@
           <div class="box-tools pull-right">
             <%= link_to edit_product_path(@product), :class => 'btn btn-primary' do %>
               <span class="glyphicon glyphicon-pencil"></span>
-              Edit
+              Editar
             <% end %>          
           </div>
         </div>
@@ -49,10 +49,10 @@
             <dd><%= @product.canitdad_min %></dd>
 
             <dt>Brand:</dt>
-            <dd><%= @product.brand %></dd>
+            <dd><%= @product.brand_nombre %></dd>
 
             <dt>Category:</dt>
-            <dd><%= @product.category %></dd>
+            <dd><%= @product.category_nombre %></dd>
 
           </dl>
         </div>

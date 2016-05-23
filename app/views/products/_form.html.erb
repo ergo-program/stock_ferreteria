@@ -15,49 +15,68 @@
           </div>
         <% end %>
 
-      <div class="form-group">
+    <form class="form-horizontal">
+    
+    <div class="field col-md-12 form-group">
+      <div class="field col-md-4 form-group">
         <%= f.label :codigo %>
         <%= f.number_field :codigo, :class => "form-control" %>
       </div>
-      <div class="form-group">
+      <div class="field col-md-6 form-group">
         <%= f.label :nombre %>
         <%= f.text_field :nombre, :class => "form-control" %>
+        </div>
       </div>
-      <div class="form-group">
+    
+    <div class="field col-md-12 form-group">
+      <div class="field col-md-4 form-group">
+        <%= f.label :unidad_medida, "Unidad de medida" %>
+        <%= f.text_field :unidad_medida, :class => "form-control" %>
+      </div>
+      <div class="field col-md-8 form-group">
         <%= f.label :descripcion %>
         <%= f.text_field :descripcion, :class => "form-control" %>
       </div>
-      <div class="form-group">
-        <%= f.label :unidad_medida %>
-        <%= f.text_field :unidad_medida, :class => "form-control" %>
-      </div>
-      <div class="form-group">
+    </div>
+
+    <div class="field col-md-12 form-group">
+      <div class="field col-md-4 form-group">
         <%= f.label :costo %>
         <%= f.text_field :costo, :class => "form-control" %>
       </div>
-      <div class="form-group">
-        <%= f.label :precio_venta %>
+      <div class="field col-md-4 form-group">
+        <%= f.label :precio_venta, "Precio de Venta"%>
         <%= f.text_field :precio_venta, :class => "form-control" %>
       </div>
-      <div class="form-group">
+      <div class="field col-md-4 form-group">
         <%= f.label :cantidad %>
         <%= f.number_field :cantidad, :class => "form-control" %>
       </div>
-      <div class="form-group">
-        <%= f.label :canitdad_min %>
+    </div>
+
+    <div class="field col-md-12 form-group">
+      <div class="field col-md-4 form-group">
+        <%= f.label :canitdad_min, "Cantidad Minima"%>
         <%= f.number_field :canitdad_min, :class => "form-control" %>
       </div>
-      <div class="form-group">
-        <%= f.label :brand %>
-        <%= f.text_field :brand, :class => "form-control" %>
+      <div class="field col-md-4 form-group">
+        <%= f.label :brand, "Marca"%>
+        <%= f.collection_select :brand_id, Brand.all, :id, :nombre, {prompt: "Seleccione una marca"} ,:class => "form-control"%>
       </div>
-      <div class="form-group">
-        <%= f.label :category %>
-        <%= f.text_field :category, :class => "form-control" %>
+      <div class="field col-md-4 form-group">
+        <%= f.label :category, "Categoria"%>
+        <%= f.collection_select :category_id, Category.all, :id, :nombre, {prompt: "Seleccione una categoria"} ,:class => "form-control"%>
       </div>
+    </div>
+
       <div class="form-group">
-        <%= f.submit :class => "btn btn-primary" %>
+        <% if controller.action_name == 'edit'  %>
+         <%= f.submit "Guardar", :class => "btn btn-primary" %>
+        <% else %>
+          <%= f.submit "Agregar", :class => 'btn btn-primary'%>
+        <% end %>
       </div>
+      </form> 
     <% end %>
     </div>
   </div>

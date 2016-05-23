@@ -18,9 +18,24 @@
 //= require adminlte
 //= require_tree .
 
-$(document).ready(function() {
+$(document).on('page:change', function() {
 	
+	// para inicializar los popover
+    $('body').popover({
+        selector: '.on-hover[data-toggle=popover]',
+        trigger: 'hover',
+        placement: function(pop,ele){
+            if($(ele).parent().is('td:first-child')) {
+                return 'right'
+            } else if($(ele).parents('tr').is(':first-child')){
+                return 'bottom';
+            }else{
+          	    return 'top'
+            }
+        }
+    });
 
+	//Estilo para Tablas	
 	$('#table').DataTable({
 	  // ajax: ...,
 	  // autoWidth: false,
