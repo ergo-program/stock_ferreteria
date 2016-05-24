@@ -36,7 +36,7 @@ $(document).on('page:change', function() {
     });
 
 	//Estilo para Tablas	
-	$('#table').DataTable({
+	$('table.display').DataTable({
 	  // ajax: ...,
 	  // autoWidth: false,
 	  // pagingType: 'full_numbers',
