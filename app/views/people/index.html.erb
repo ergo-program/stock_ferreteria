@@ -1,6 +1,6 @@
 <% content_for :content_header  do %>
   <section class="content-header">
-    <h1>Listing <small>people</small></h1>
+    <h1>Clientes/Proveedores</h1>
 
     <ol class="breadcrumb">
       <li><a href="/"><i class="fa fa-dashboard"></i> Home</a></li>
@@ -10,13 +10,14 @@
 <% end %>
 
 <section class="content">
-  <div class="row">
-    <div class="col-xs-12">
-      <div class="box box-primary">
         <div class="box-header">
-          <div class="box-tools pull-right">
+          <div class="box-tools pull-left">
             <%# Added Bootstrap data modal attribute %>
-            <%= link_to 'New Person', '#new_person_modal', 'data-toggle' => 'modal' %>
+            <%= link_to '#new_person_modal', 'data-toggle' => 'modal', :class => 'btn btn-success' do %>
+              <span class="glyphicon glyphicon-plus"></span>
+              Nuevo
+            <% end %>
+            <%#= link_to 'New Person', '#new_person_modal', 'data-toggle' => 'modal' %>
 
             <%# Bootstrap modal markup. @see: http://getbootstrap.com/javascript/#modals %>
             <div class="modal fade" id="new_person_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -38,17 +39,21 @@
             </div>         
           </div>
         </div>
+        
+  <div class="row">
+    <div class="col-xs-12">
+
+      <div class="box box-primary">
+
         <div class="box-body table-responsive">
           <table id="table_person" class="display table">
             <thead>
               <tr>
-              <th>Nombre</th>
-              <th>Telefono</th>
-              <th>Direccion</th>
-              <th>Documento</th>
-              <th>Tipo</th>
-                            <th></th>
-                <th></th>
+                <th>Nombre</th>
+                <th>Telefono</th>
+                <th>Direccion</th>
+                <th>Documento</th>
+                <th>Tipo</th>
                 <th></th>
               </tr>
             </thead>
