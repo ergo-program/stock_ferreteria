@@ -1,7 +1,11 @@
+<% modal ||= false %>
+<% remote = modal ? true : false %>
 <section class="content invoice">
   <div class="row">
     <div class="col-md-10">
-      <%= form_for(@person, :html => { :role => "form" }) do |f| %>
+      
+      <%= form_for(@person, remote: remote, html: {role: :form, 'data-model' => 'person'}) do |f| %>
+
         <% if @person.errors.any? %>
           <div class="alert alert-danger alert-dismissable" role="alert">
             <button type="button" class="close" data-dismiss="alert" aria-hidden="true">x</button>

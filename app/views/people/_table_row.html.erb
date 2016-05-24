@@ -1,0 +1,10 @@
+<tr>
+	<td><%= person.nombre %></td>
+	<td><%= person.telefono %></td>
+	<td><%= person.direccion %></td>
+	<td><%= person.documento %></td>
+	<td><%= person.tipo %></td> 
+	<td><%= link_to 'Show', person %></td>
+	<td><%= link_to 'Edit', edit_person_path(person) %></td>
+	<td><%= link_to 'Destroy', person, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+</tr>
