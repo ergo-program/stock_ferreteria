@@ -12,14 +12,12 @@
 <section class="content">
         <div class="box-header">
           <div class="box-tools pull-left">
-            <%# Added Bootstrap data modal attribute %>
+
             <%= link_to '#new_person_modal', 'data-toggle' => 'modal', :class => 'btn btn-success' do %>
               <span class="glyphicon glyphicon-plus"></span>
               Nuevo
             <% end %>
-            <%#= link_to 'New Person', '#new_person_modal', 'data-toggle' => 'modal' %>
-
-            <%# Bootstrap modal markup. @see: http://getbootstrap.com/javascript/#modals %>
+  
             <div class="modal fade" id="new_person_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
               <div class="modal-dialog">
                 <div class="modal-content">
@@ -28,7 +26,6 @@
                     <h4 class="modal-title" id="myModalLabel">Create new person</h4>
                   </div>
                   <div class="modal-body">
-                    <%# Render the new person form (passing modal => true to enable remote => true) %>
                     <%= render 'form', modal: true %>
                   </div>
                   <div class="modal-footer">
@@ -59,7 +56,6 @@
             </thead>
             <tbody>
               <% @people.each do |person| %>
-                <%# Render table row partial for each person object %>
                 <%= render partial: 'table_row', locals: {person: person} %>
               <% end %>
             </tbody>
