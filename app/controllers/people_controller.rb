@@ -47,9 +47,11 @@ class PeopleController < ApplicationController
       if @person.update(person_params)
         format.html { redirect_to @person, notice: 'El registro fue editado exitosamente.' }
         format.json { render :show, status: :ok, location: @person }
+        format.js   { render action: 'show', status: :ok, location: @person }
       else
         format.html { render :edit }
         format.json { render json: @person.errors, status: :unprocessable_entity }
+        format.js { render json: @person.errors, status: :unprocessable_entity }
       end
     end
   end

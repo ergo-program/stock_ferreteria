@@ -48,3 +48,6 @@ gem 'adminlte-generators'
 
 #para tablas de datos
 gem 'jquery-datatables-rails', '~> 3.3.0'
+
+#formularios anidados
+gem "nested_form"

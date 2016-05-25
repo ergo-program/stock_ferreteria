@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require dataTables/jquery.dataTables
+//= require jquery_nested_form
 //= require turbolinks
 //= require bootstrap
 //= require adminlte
@@ -71,4 +72,25 @@ $(document).on('page:change', function() {
 			}
 	    }
 	});
+});
+
+//insertar en una tabla de un subformulario co nested form
+jQuery(function ($) {
+  window.NestedFormEvents.prototype.insertFields = function(content, assoc, link) {
+    if($(link).hasClass('insert_in_table')){
+      return $(content).insertBefore($(link).parent().parent());
+    }
+    else{
+      return $(content).insertBefore(link);
+    }
+  };
+});
+
+$(document).on('nested:fieldAdded', function(event){
+  // this field was just inserted into your form
+  var field = event.field; 
+  // it's a jQuery object already! Now you can find date input
+  var dateField = field.find('.input-group.date');
+  // and activate datepicker on it
+  dateField.datepicker();
 });
