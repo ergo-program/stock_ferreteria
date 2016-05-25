@@ -5,6 +5,7 @@ class MovementsController < ApplicationController
   # GET /movements.json
   def index
     @movements = Movement.all
+    @movement = Movement.new
   end
 
   # GET /movements/1
@@ -30,9 +31,11 @@ class MovementsController < ApplicationController
       if @movement.save
         format.html { redirect_to @movement, notice: 'Movement was successfully created.' }
         format.json { render :show, status: :created, location: @movement }
+        format.js   { render action: 'show', status: :created, location: @movement }
       else
         format.html { render :new }
         format.json { render json: @movement.errors, status: :unprocessable_entity }
+        format.js   { render json: @movement.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -69,6 +72,6 @@ class MovementsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def movement_params
-      params.require(:movement).permit(:fecha, :motive_id, :tipo, :person_id)
+      params.require(:movement).permit(:fecha, :motive_id, :tipo, :person_id, d_movements_attributes: [:id, :product_id, :cantidad, :_destroy])
     end
 end
