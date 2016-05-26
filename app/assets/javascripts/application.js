@@ -39,7 +39,7 @@ $(document).on('page:change', function() {
     });
 
 	//Estilo para Tablas	
-	$('table.display').DataTable({
+	$('#table').DataTable({
 	  // ajax: ...,
 	  // autoWidth: false,
 	  // pagingType: 'full_numbers',

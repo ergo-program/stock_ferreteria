@@ -5,7 +5,6 @@ class ProductsController < ApplicationController
   # GET /products.json
   def index
     @products = Product.all
-    @product = Product.new
   end
 
   # GET /products/1
@@ -27,17 +26,13 @@ class ProductsController < ApplicationController
   def create
     @product = Product.new(product_params)
 
-    respond_to do |format|
-      if @product.valid? 
+    respond_to do |format| 
       if @product.save
         format.html { redirect_to products_path, notice: 'El producto fue creado exitosamente.' }
         format.json { render :show, status: :created, location: @product }
-        format.js   { render action: 'show', status: :created, location: @product }
       else
         format.html { render :new }
         format.json { render json: @product.errors, status: :unprocessable_entity }
-        format.js   { render json: @product.errors, status: :unprocessable_entity }
-      end
       end
     end
   end

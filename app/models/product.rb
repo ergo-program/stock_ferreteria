@@ -5,5 +5,6 @@ class Product < ActiveRecord::Base
   delegate :nombre, to: :brand, prefix: true, allow_nil: true
   delegate :nombre, to: :category, prefix: true, allow_nil: true
 
-  validates :codigo, :presence => {:message => "No puede estar en blanco"}
+    validates :codigo, 	:length => { in: 1..20 , message: "debe tener entre 1 y 20 caracteres"},
+  						:uniqueness => {:message => "Este numero ya existe, vuelva a intentarlo"}
 end
