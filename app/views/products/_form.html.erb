@@ -20,37 +20,37 @@
     <div class="field col-md-12 form-group">
       <div class="field col-md-4 form-group">
         <%= f.label :codigo %>
-        <%= f.text_field :codigo, :class => "form-control" %>
+        <%= f.text_field :codigo,:maxlength => 20, :class => "form-control" %>
       </div>
       <div class="field col-md-6 form-group">
         <%= f.label :nombre %>
-        <%= f.text_field :nombre, :class => "form-control" %>
+        <%= f.text_field :nombre,:maxlength => 50, :class => "form-control" %>
         </div>
       </div>
     
     <div class="field col-md-12 form-group">
       <div class="field col-md-4 form-group">
         <%= f.label :unidad_medida, "Unidad de medida" %>
-        <%= f.text_field :unidad_medida, :class => "form-control" %>
+        <%= f.text_field :unidad_medida,:maxlength => 20, :class => "form-control" %>
       </div>
       <div class="field col-md-8 form-group">
         <%= f.label :descripcion %>
-        <%= f.text_field :descripcion, :class => "form-control" %>
+        <%= f.text_field :descripcion,:maxlength => 80, :class => "form-control" %>
       </div>
     </div>
 
     <div class="field col-md-12 form-group">
       <div class="field col-md-4 form-group">
         <%= f.label :costo %>
-        <%= f.text_field :costo, :class => "form-control" %>
+        <%= f.text_field :costo,:maxlength => 10, :class => "form-control" %>
       </div>
       <div class="field col-md-4 form-group">
         <%= f.label :precio_venta, "Precio de Venta"%>
-        <%= f.text_field :precio_venta, :class => "form-control" %>
+        <%= f.text_field :precio_venta,:maxlength => 10, :class => "form-control" %>
       </div>
       <div class="field col-md-4 form-group">
         <%= f.label :cantidad %>
-        <%= f.number_field :cantidad, :class => "form-control" %>
+        <%= f.number_field :cantidad,:maxlength => 10, :class => "form-control" %>
       </div>
     </div>
 

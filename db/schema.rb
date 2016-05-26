@@ -28,17 +28,6 @@ ActiveRecord::Schema.define(version: 20160520235726) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "configurations", force: :cascade do |t|
-    t.string   "nombre"
-    t.string   "direccion"
-    t.string   "telefono"
-    t.string   "email"
-    t.string   "imagen"
-    t.integer  "tiempo_espera"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
-  end
-
   create_table "d_movements", force: :cascade do |t|
     t.integer  "movement_id"
     t.integer  "product_id"
@@ -90,7 +79,7 @@ ActiveRecord::Schema.define(version: 20160520235726) do
   end
 
   create_table "products", force: :cascade do |t|
-    t.integer  "codigo"
+    t.string   "codigo"
     t.string   "nombre"
     t.string   "descripcion"
     t.string   "unidad_medida"

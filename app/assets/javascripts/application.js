@@ -22,6 +22,27 @@
 //= require_tree .
 
 $(document).on('page:change', function() {
+
+	$("#mydate").datepicker().datepicker("setDate", new Date());
+	$('.input-group.date').datepicker({
+		closeText: 'Cerrar',
+		prevText: '<Ant',
+ 		nextText: 'Sig>',
+ 		currentText: 'Hoy',
+ 		monthNames: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
+ 		monthNamesShort: ['Ene','Feb','Mar','Abr', 'May','Jun','Jul','Ago','Sep', 'Oct','Nov','Dic'],
+ 		dayNames: ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'],
+ 		dayNamesShort: ['Dom','Lun','Mar','Mié','Juv','Vie','Sáb'],
+ 		dayNamesMin: ['Do','Lu','Ma','Mi','Ju','Vi','Sá'],
+ 		weekHeader: 'Sm',
+ 		dateFormat: 'dd/mm/yy',
+ 		firstDay: 1,
+ 		isRTL: false,
+ 		showMonthAfterYear: false,
+ 		yearSuffix: ''
+	});
+
+
 	
 	// para inicializar los popover
     $('body').popover({
@@ -95,26 +116,4 @@ $(document).on('nested:fieldAdded', function(event){
   var dateField = field.find('.input-group.date');
   // and activate datepicker on it
   dateField.datepicker();
-});
-
-$(document).ready(function() {
-	$("#mydate").datepicker().datepicker("setDate", new Date());
-	$('.input-group.date').datepicker({
-		closeText: 'Cerrar',
-		prevText: '<Ant',
- 		nextText: 'Sig>',
- 		currentText: 'Hoy',
- 		monthNames: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
- 		monthNamesShort: ['Ene','Feb','Mar','Abr', 'May','Jun','Jul','Ago','Sep', 'Oct','Nov','Dic'],
- 		dayNames: ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'],
- 		dayNamesShort: ['Dom','Lun','Mar','Mié','Juv','Vie','Sáb'],
- 		dayNamesMin: ['Do','Lu','Ma','Mi','Ju','Vi','Sá'],
- 		weekHeader: 'Sm',
- 		dateFormat: 'dd/mm/yy',
- 		firstDay: 1,
- 		isRTL: false,
- 		showMonthAfterYear: false,
- 		yearSuffix: ''
-	});
-	
 });
