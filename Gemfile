@@ -51,3 +51,9 @@ gem 'jquery-datatables-rails', '~> 3.3.0'
 
 #formularios anidados
 gem "nested_form"
+
+# calendario
+gem 'bootstrap-datepicker-rails'
+
+# css calendario
+gem 'jquery-ui-rails'
