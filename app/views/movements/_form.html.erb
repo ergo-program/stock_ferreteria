@@ -15,54 +15,69 @@
           </div>
         <% end %>
 
-      <div class="field col-md-6 form-group">
-        <%= f.label :fecha, :class=> 'col-md-3 control-label' %>
-        <div class="input-group col-md-6">
-          <%= f.text_field :fecha, :class => 'input-group date form-control', :id => 'mydate'%><span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+
+    <form class="form-horizontal">
+      <div class="field col-md-12 form-group"> 
+        <div class="field col-md-4 form-group required">
+          <%= f.label :fecha, :class=> 'col-md-4 control-label' %>
+          <div class="input-group col-md-8">
+            <%= f.text_field :fecha, :class => 'input-group date form-control', :id => 'mydate'%><span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+          </div>
+        </div>
+
+        <div class="field col-md-4 form-group required">
+          <%= f.label :tipo, :class=> 'col-md-3 control-label'%>
+          <div class="col-md-6">
+            <select name="movimiento_banco[es_ingreso]" class="btn btn-default">
+              <option value= "Ingreso" selected="selected" >Ingreso</option>
+              <option value= "Egreso" >Egreso</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="field col-md-4 form-group required">
+          <%= f.label :motivo, :class=> 'col-md-4 control-label' %>
+          <div class="col-md-6">
+            <%= f.collection_select :motive_id, Motive.all, :id, :descripcion, {prompt: "Seleccione un motivo"} ,:class => 'btn btn-default'%>
+          </div>
         </div>
       </div>
 
-      <div class="form-group">
-        <%= f.label :motivo %>
-        <%= f.text_field :motive, :class => "form-control" %>
-      </div>
-      <div class="form-group">
-        <%= f.label :tipo %>
-        <%= f.text_field :tipo, :class => "form-control" %>
-      </div>
-      <div class="form-group">
-        <%= f.label :persona %>
-        <%= f.text_field :person, :class => "form-control" %>
+      <div class="field col-md-12 form-group"> 
+          <%= f.label 'Cliente/Proveedor', :class=> 'col-md-4 control-label' %>
+          <div class="col-md-6">
+            <%= f.collection_select :person_id, Person.all, :id, :nombre, {prompt: "Ninguna"} ,:class => 'btn btn-default'%>
+          </div>
       </div>
 
-      <br>
+        <br>
 
-      <table class="table table-striped table-hover">
-        <thead>
-          <tr>
-            <th>Producto</th>
-            <th>Cantidad</th>
-            <th></th>
-          </tr>
-        </thead>
-        <tbody>
-          <%= f.fields_for :d_movements, :wrapper => false do |detalle| %>
-            <tr class="fields">
-              <td><%= detalle.collection_select :product_id, Product.all, :id, :nombre, {prompt: "Seleccione un producto"} ,:class => 'btn btn-default'%></td>
-              <td><%= detalle.text_field :cantidad %></td>
-              <td><%= detalle.link_to_remove "X", :class => 'btn btn-danger'%></td>
+        <table class="table table-striped table-hover">
+          <thead>
+            <tr>
+              <th>Producto</th>
+              <th>Cantidad</th>
+              <th></th>
             </tr>
-          <% end %>
-          <tr>
-             <td><%= f.link_to_add "Agregar producto", :d_movements, :class => 'insert_in_table btn btn-default' %></td>
-          </tr>
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+            <%= f.fields_for :d_movements, :wrapper => false do |detalle| %>
+              <tr class="fields">
+                <td><%= detalle.collection_select :product_id, Product.all, :id, :nombre, {prompt: "Seleccione un producto"} ,:class => 'btn btn-default form-control'%></td>
+                <td><%= detalle.text_field :cantidad, :class => 'form-control'%></td>
+                <td><%= detalle.link_to_remove "X", :class => 'btn btn-danger'%></td>
+              </tr>
+            <% end %>
+            <tr>
+               <td><%= f.link_to_add "Agregar producto", :d_movements, :class => 'insert_in_table btn btn-default' %></td>
+            </tr>
+          </tbody>
+        </table>
 
-      <div class="form-group">
-        <%= f.submit 'Guardar', class: 'btn btn-primary' %>
-      </div>
-    <% end %>
+        <div class="form-group">
+          <%= f.submit 'Guardar', class: 'btn btn-primary' %>
+        </div>
+      <% end %>
     </div>
   </div>
 </section> 
