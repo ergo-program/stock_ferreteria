@@ -4,4 +4,6 @@ class Product < ActiveRecord::Base
   
   delegate :nombre, to: :brand, prefix: true, allow_nil: true
   delegate :nombre, to: :category, prefix: true, allow_nil: true
+
+  validates :codigo, :presence => {:message => "No puede estar en blanco"}
 end

@@ -28,6 +28,7 @@ class ProductsController < ApplicationController
     @product = Product.new(product_params)
 
     respond_to do |format|
+      if @product.valid? 
       if @product.save
         format.html { redirect_to products_path, notice: 'El producto fue creado exitosamente.' }
         format.json { render :show, status: :created, location: @product }
@@ -36,6 +37,7 @@ class ProductsController < ApplicationController
         format.html { render :new }
         format.json { render json: @product.errors, status: :unprocessable_entity }
         format.js   { render json: @product.errors, status: :unprocessable_entity }
+      end
       end
     end
   end
