@@ -98,7 +98,7 @@ $(document).on('nested:fieldAdded', function(event){
 });
 
 $(document).ready(function() {
-	
+	$("#mydate").datepicker().datepicker("setDate", new Date());
 	$('.input-group.date').datepicker({
 		closeText: 'Cerrar',
 		prevText: '<Ant',
@@ -116,4 +116,5 @@ $(document).ready(function() {
  		showMonthAfterYear: false,
  		yearSuffix: ''
 	});
+	
 });
