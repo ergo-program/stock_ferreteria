@@ -61,7 +61,15 @@
       </div>
       <div class="field col-md-4 form-group">
         <%= f.label :brand, "Marca"%>
-        <%= f.collection_select :brand_id, Brand.all, :id, :nombre, {prompt: "Seleccione una marca"} ,:class => "form-control"%>
+              <select id="brand_ingreso" name="brand[brand_id]" class="btn btn-default">
+                 <% @brands.each do |brand| %>
+                    <%= render partial: "brands/coleccion", locals: {brand: brand} %>
+  
+                <% end %>
+              </select>
+              <%= link_to "#modal-brand", "data-toggle" => "modal" , class: 'btn btn-primary' do %>
+              <span class="glyphicon glyphicon-plus"></span>
+              <% end %>
       </div>
       <div class="field col-md-4 form-group">
         <%= f.label :category, "Categoria"%>
@@ -81,3 +89,5 @@
     </div>
   </div>
 </section> 
+
+<%= render 'products/modals/marca' %>

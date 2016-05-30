@@ -1,0 +1,5 @@
+<% if Brand.last == brand %>
+	<option value= <%= brand.id %> selected="selected"><%= brand.nombre%></option>
+<% else %>
+	<option value= <%= brand.id %>><%= brand.nombre%></option>
+<% end %>
