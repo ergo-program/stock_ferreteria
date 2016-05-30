@@ -26,7 +26,7 @@ class ProductsController < ApplicationController
   def create
     @product = Product.new(product_params)
 
-    respond_to do |format| 
+    respond_to do |format|
       if @product.save
         format.html { redirect_to products_path, notice: 'El producto fue creado exitosamente.' }
         format.json { render :show, status: :created, location: @product }
