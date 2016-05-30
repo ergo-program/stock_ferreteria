@@ -22,6 +22,12 @@
         </div>
       </div>
 
+      <div class="field col-md-12 form-group"> 
+          <%= f.label 'Cliente/Proveedor', :class=> 'col-md-3 control-label' %>
+          <div class="col-md-4">
+            <%= f.collection_select :person_id, Person.all, :id, :nombre, {prompt: "Ninguna"} ,:class => 'btn btn-default'%>
+          </div>
+      
       <div class="form-group">
         <%= f.label :motivo %>
         <%= f.text_field :motive, :class => "form-control" %>
