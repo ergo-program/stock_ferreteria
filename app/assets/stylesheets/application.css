@@ -21,3 +21,10 @@
 .popover-content{
   word-break: break-word;
 }
+
+.form-group.required .control-label:before{
+  color: red;
+  content:"* ";
+  font-size: absolute;
+  margin-left: -15px;
+}
