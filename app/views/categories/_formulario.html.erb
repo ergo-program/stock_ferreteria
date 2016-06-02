@@ -1,7 +1,7 @@
 <% modal ||= false %>
 <% remote = modal ? true : false %>
 
-<%= form_for(Brand.new, validate: true, remote: remote, html: {role: :form, 'data-model' => 'brand'}) do |f| %>
+<%= form_for(Category.new, validate: true, remote: remote, html: {role: :form, 'data-model' => 'category'}) do |f| %>
 
 <section class="content invoice">
   <div class="row">
@@ -14,6 +14,7 @@
       <div class="form-group">
         <%= f.submit "Agregar", :class => "btn btn-primary" %>
         <button type="button" class="btn btn-primary" data-dismiss="modal">Cancelar</button>
+      </div>
       </div>
     <% end %>
     </div>

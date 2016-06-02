@@ -1,0 +1,5 @@
+<% if Category.last == category %>
+	<option value= <%= category.id %> selected="selected"><%= category.nombre%></option>
+<% else %>
+	<option value= <%= category.id %>><%= category.nombre%></option>
+<% end %>

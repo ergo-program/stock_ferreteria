@@ -5,8 +5,6 @@ class ProductsController < ApplicationController
   # GET /products.json
   def index
     @products = Product.all
-    @brands = Brand.all
-    @brand = Brand.new
   end
 
   # GET /products/1
@@ -17,17 +15,25 @@ class ProductsController < ApplicationController
   # GET /products/new
   def new
     @product = Product.new
+    
     @brands = Brand.all
+    @categories = Category.all
+
     @brand = Brand.new
+    @category = Category.new
+    
   end
 
   # GET /products/1/edit
   def edit
+
   end
 
   # POST /products
   # POST /products.json
   def create
+    @brands = Brand.all
+    @categories = Category.all
     @product = Product.new(product_params)
 
     respond_to do |format|
