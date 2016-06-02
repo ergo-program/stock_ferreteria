@@ -34,7 +34,8 @@
               </tr>
             </thead>
             <tbody>
-              <%= content_tag_for(:tr, @movements) do |movement| %>
+              <% mov_del_dia = @movements.where(fecha: Date.today)%>
+              <%= content_tag_for(:tr, mov_del_dia) do |movement| %>
               <td><%= movement.fecha %></td>
               <td><%= movement.tipo %></td>
               <td><%= movement.motive_descripcion %></td>
