@@ -30,7 +30,7 @@
               <tr>
               <th>Codigo</th>
               <th>Nombre</th>
-              <th>Unidad de medida</th>
+              <th>Costo</th>
               <th>Precio de venta</th>
               <th>Cantidad</th>
               <th>Marca</th>
@@ -43,7 +43,7 @@
               <%= content_tag_for(:tr, @products) do |product| %>
                 <td><%= product.codigo %></td>
               <td><%= disminuir(product.nombre)%></td>
-              <td><%= product.unidad_medida %></td>
+              <td><%= product.costo %></td>
               <td><%= product.precio_venta %></td>
               <td><%= product.cantidad %></td>
               <td><%= product.brand_nombre %></td>

@@ -5,6 +5,7 @@ class BrandsController < ApplicationController
   # GET /brands.json
   def index
     @brands = Brand.all
+    @brand = Brand.new
   end
 
   # GET /brands/1
@@ -28,11 +29,13 @@ class BrandsController < ApplicationController
 
     respond_to do |format|
       if @brand.save
-        format.html { redirect_to @brand, notice: 'Brand was successfully created.' }
+        format.html { redirect_to products_url, notice: 'Brand was successfully created.' }
         format.json { render :show, status: :created, location: @brand }
+        format.js   { render action: 'show', status: :created, location: @brand }
       else
         format.html { render :new }
         format.json { render json: @brand.errors, status: :unprocessable_entity }
+        format.js   { render json: @brand.errors, status: :unprocessable_entity }
       end
     end
   end
