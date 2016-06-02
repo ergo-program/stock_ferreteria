@@ -1,6 +1,6 @@
 <% content_for :content_header  do %>
   <section class="content-header">
-    <h1>Movimientos</h1>
+    <h1>Listing <small>movements</small></h1>
 
     <ol class="breadcrumb">
       <li><a href="/"><i class="fa fa-dashboard"></i> Inicio</a></li>
@@ -10,49 +10,38 @@
 <% end %>
 
 <section class="content">
-  <div class="box-header">
-    <div class="box-tools pull-left">
-      <%= link_to new_movement_path(@movement), :class => 'btn btn-success' do %>
-        <span class="glyphicon glyphicon-plus"></span>
-          Nuevo
-        <% end %>          
-    </div>
-  </div>
-
   <div class="row">
     <div class="col-xs-12">
       <div class="box box-primary">
+        <div class="box-header">
+          <div class="box-tools pull-right">
+            <%= link_to new_movement_path(@movement), :class => 'btn btn-success' do %>
+              <span class="glyphicon glyphicon-plus"></span>
+              New Movement
+            <% end %>          
+          </div>
+        </div>
         <div class="box-body table-responsive">
-          <table  id="table" class="table table-hover">
+          <table class="table table-hover">
             <thead>
               <tr>
-                <th>Fecha</th>
-                <th>Ingreso/Egreso</th>
-                <th>Motivo</th>
-                <th>Cliente/Proveedor</th>
-                <th></th>
+              <th>Fecha</th>
+              <th>Ingreso/Egreso</th>
+              <th>Motivo</th>
+              <th>Cliente/Proveedor</th>
+              <th></th>
               </tr>
             </thead>
             <tbody>
               <% mov_del_dia = @movements.where(fecha: Date.today)%>
               <%= content_tag_for(:tr, mov_del_dia) do |movement| %>
               <td><%= movement.fecha %></td>
+              <td><%= movement.motive %></td>
               <td><%= movement.tipo %></td>
-              <td><%= movement.motive_descripcion %></td>
-              <td><%= movement.person_nombre %></td>
-              <td>
-                  <%= link_to movement, class: 'btn btn-info', title: 'Ver', 'data-toggle' => 'tooltip', 'data-placement' => 'rigth' do %>
-                  <span class= "fa fa-eye"></span>
-                  <% end %>
-
-                  <%= link_to edit_movement_path(movement), class: 'btn btn-success', title: 'Editar', 'data-toggle' => 'tooltip', 'data-placement' => 'rigth' do %>
-                  <span class= "fa fa-edit"></span>
-                  <% end %>
-
-                  <%= link_to movement, method: :delete, data: { confirm: 'Esta seguro que desea eliminar este registro?' }, class: 'btn btn-danger', title: 'Eliminar', 'data-toggle' => 'tooltip', 'data-placement' => 'rigth' do %>
-                  <span class= "fa fa-trash"></span>
-                  <% end %>
-              </td>
+              <td><%= movement.person %></td>
+                            <td><%= link_to 'Show', movement %></td>
+                <td><%= link_to 'Edit', edit_movement_path(movement) %></td>
+                <td><%= link_to 'Destroy', movement, method: :delete, data: { confirm: 'Are you sure?' } %></td>
               <% end %>
             </tbody>
           </table>
