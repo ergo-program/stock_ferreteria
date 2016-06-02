@@ -26,7 +26,11 @@ class ProductsController < ApplicationController
 
   # GET /products/1/edit
   def edit
-
+    product = Product.find(params[:id])
+    @brands = Brand.all
+    @categories = Category.all
+    @brand = Brand.find(product.brand_id)
+    @category = Category.find(product.category_id)
   end
 
   # POST /products
