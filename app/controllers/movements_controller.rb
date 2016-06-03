@@ -29,13 +29,11 @@ class MovementsController < ApplicationController
    
     respond_to do |format|
       if @movement.save
-        format.html { redirect_to @movement, notice: 'Movement was successfully created.' }
+        format.html { redirect_to movements_path, notice: 'El registro fue creado exitosamente.' }
         format.json { render :show, status: :created, location: @movement }
-        format.js   { render action: 'show', status: :created, location: @movement }
       else
         format.html { render :new }
         format.json { render json: @movement.errors, status: :unprocessable_entity }
-        format.js   { render json: @movement.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -45,7 +43,7 @@ class MovementsController < ApplicationController
   def update
     respond_to do |format|
       if @movement.update(movement_params)
-        format.html { redirect_to @movement, notice: 'Movement was successfully updated.' }
+        format.html { redirect_to movements_path, notice: 'El registro fue editado exitosamente.' }
         format.json { render :show, status: :ok, location: @movement }
       else
         format.html { render :edit }
@@ -59,7 +57,7 @@ class MovementsController < ApplicationController
   def destroy
     @movement.destroy
     respond_to do |format|
-      format.html { redirect_to movements_url, notice: 'Movement was successfully destroyed.' }
+      format.html { redirect_to movements_url, notice: 'El registro fue eliminado exitosamente.' }
       format.json { head :no_content }
     end
   end
