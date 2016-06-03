@@ -34,7 +34,7 @@
         <div class="field col-md-4 form-group required">
           <%= f.label 'Motivo', :class=> 'col-md-4 control-label' %>
           <div class="col-md-4">
-            <%= f.collection_select :motive_id, Motive.all, :id, :descripcion, {prompt: "Seleccione un motivo"} ,:class => 'btn btn-default'%>
+            <%= f.collection_select :motive_id, Motive.all.order('descripcion'), :id, :descripcion, {prompt: "Seleccione un motivo"} ,:class => 'btn btn-default'%>
           </div>
         </div>
 
@@ -43,7 +43,7 @@
       <div class="field col-md-6 form-group">
           <%= f.label 'Cliente/Proveedor', :class=> 'col-md-5 control-label' %>
           <div class="col-md-7">
-            <%= f.collection_select :person_id, Person.all, :id, :nombre, {prompt: "Ninguna"} ,:class => 'btn btn-default'%>
+            <%= f.collection_select :person_id, Person.all.order('nombre'), :id, :nombre, {prompt: "Ninguna"} ,:class => 'btn btn-default'%>
           </div>
       </div>
 
