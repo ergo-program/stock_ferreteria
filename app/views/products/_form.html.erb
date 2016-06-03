@@ -26,8 +26,8 @@
         <%= f.label :codigo %>
         <%= f.text_field :codigo,:maxlength => 20, :class => "form-control" %>
       </div>
-      <div class="field col-md-6 form-group">
-        <%= f.label :nombre %>
+      <div class="field col-md-6 form-group required">
+        <%= f.label :nombre, :class => 'control-label' %>
         <%= f.text_field :nombre,:maxlength => 50, :class => "form-control" %>
         </div>
       </div>
@@ -44,8 +44,8 @@
     </div>
 
     <div class="field col-md-12 form-group">
-      <div class="field col-md-4 form-group">
-        <%= f.label :costo %>
+      <div class="field col-md-4 form-group required">
+        <%= f.label :costo, :class => 'control-label' %>
         <%= f.number_field :costo,:maxlength => 10, :class => "form-control" %>
       </div>
       <div class="field col-md-4 form-group">
@@ -63,8 +63,8 @@
         <%= f.label :canitdad_min, "Cantidad Minima"%>
         <%= f.number_field :canitdad_min,:maxlength => 10, :class => "form-control" %>
       </div>
-      <div class="field col-md-4 form-group">
-        <%= f.label :brand, "Marca"%>
+      <div class="field col-md-4 form-group required">
+        <%= f.label :brand, "Marca", :class => 'control-label'%> <br class="">
               <select id="brand_ingreso" name="product[brand_id]" class="btn btn-default">
 
                  <% @brands.each do |brand| %>
@@ -78,8 +78,8 @@
               <span class="glyphicon glyphicon-plus"></span>
               <% end %>
       </div>
-      <div class="field col-md-5 form-group">
-        <%= f.label :category, "Categoria"%>
+      <div class="field col-md-5 form-group required">
+        <%= f.label :category, "Categoria", :class => 'control-label'%> <br class="">
         <select id="category_ingreso" name="product[category_id]" class="btn btn-default">
                  <% @categories.each do |category| %>
                     <%= render partial: "categories/coleccion", locals: {category: category} %>

@@ -42,7 +42,7 @@ class ParametersController < ApplicationController
   def update
     respond_to do |format|
       if @parameter.update(parameter_params)
-        format.html { redirect_to @parameter, notice: 'Parameter was successfully updated.' }
+        format.html { redirect_to root_path, notice: 'Actualizacion de configuraciones actualizada.' }
         format.json { render :show, status: :ok, location: @parameter }
       else
         format.html { render :edit }
