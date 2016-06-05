@@ -80,7 +80,7 @@ ActiveRecord::Schema.define(version: 20160604003336) do
   end
 
   create_table "products", force: :cascade do |t|
-    t.integer  "codigo"
+    t.string   "codigo"
     t.string   "nombre"
     t.string   "descripcion"
     t.string   "unidad_medida"
