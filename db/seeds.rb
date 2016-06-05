@@ -5,3 +5,7 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+#evita el error cuando nombre es nulo
+ Parameter.create(nombre: 'Empresa', direccion: "Encarnacion", telefono: "999", email: "empresa@gmail.com")
+ 

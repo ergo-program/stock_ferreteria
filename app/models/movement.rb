@@ -9,8 +9,18 @@ class Movement < ActiveRecord::Base
   accepts_nested_attributes_for :d_movements, :allow_destroy => true
 
   validates :fecha, :presence => {:message => "seleccione una fecha"}
-  validates :tipo, :presence => {:message => "seleccione un tipo"}
   validates :motive_id, :presence => {:message => "seleccione un motivo"}
 
+  validate :no_detalle
 
+  protected
+
+  def no_detalle
+  	errors.add(:fecha, "debe tener al menos un producto") if detalle_vacio? 
+  end
+
+  def detalle_vacio?
+    d_movements.empty?
+  end
+  
 end
