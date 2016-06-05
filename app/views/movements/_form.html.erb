@@ -13,6 +13,11 @@
           </div>
         <% end %>
 
+      <form class="form-horizontal">
+
+      <p class="text-primary"><i class="">* Campos obligatorios</i></p>
+      <br>
+
       <div class="field col-md-12 form-group"> 
         <div class="field col-md-4 form-group required">
           <%= f.label :fecha, :class=> 'col-md-4 control-label' %>
@@ -22,30 +27,22 @@
         </div>
 
         <div class="field col-md-4 form-group required">
-          <%= f.label :tipo, "Tipo", :class => 'control-label col-md-3' %>
-          <div class="col-md-3">
-            <select name="movement[tipo]" class="btn btn-default">
-              <option value= "Ingreso" selected="selected" >Ingreso</option>
-              <option value= "Egreso" >Egreso</option>
-            </select>
-          </div>
-        </div>
-
-        <div class="field col-md-4 form-group required">
           <%= f.label 'Motivo', :class=> 'col-md-4 control-label' %>
-          <div class="col-md-4">
-            <%= f.collection_select :motive_id, Motive.all.order('descripcion'), :id, :descripcion, {prompt: "Seleccione un motivo"} ,:class => 'btn btn-default'%>
+          <div class="col-md-7">
+            <%= f.collection_select :motive_id, Motive.all.order('descripcion'), :id, :descripcion, {prompt: "Ninguno"} ,:class => 'btn btn-default'%>
           </div>
         </div>
 
-      </div>
-
-      <div class="field col-md-6 form-group">
-          <%= f.label 'Cliente/Proveedor', :class=> 'col-md-5 control-label' %>
+        <div class="field col-md-4 form-group">
+          <%= f.label 'Cliente', :class=> 'col-md-4 control-label' %>
           <div class="col-md-7">
-            <%= f.collection_select :person_id, Person.all.order('nombre'), :id, :nombre, {prompt: "Ninguna"} ,:class => 'btn btn-default'%>
+            <%= f.collection_select :person_id, Person.all.order('nombre'), :id, :nombre, {prompt: "Ninguno"} ,:class => 'btn btn-default'%>
           </div>
       </div>
+
+      </div>
+
+  
 
       <br>
 
@@ -75,6 +72,8 @@
         <%= f.submit 'Guardar', class: 'btn btn-primary' %>
       </div>
     <% end %>
+
+      </form>
     </div>
   </div>
 </section> 

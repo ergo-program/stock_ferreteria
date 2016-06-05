@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160520235726) do
+ActiveRecord::Schema.define(version: 20160604003336) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,6 +34,7 @@ ActiveRecord::Schema.define(version: 20160520235726) do
     t.integer  "cantidad"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.decimal  "precio"
   end
 
   add_index "d_movements", ["movement_id"], name: "index_d_movements_on_movement_id", using: :btree
@@ -79,7 +80,7 @@ ActiveRecord::Schema.define(version: 20160520235726) do
   end
 
   create_table "products", force: :cascade do |t|
-    t.string   "codigo"
+    t.integer  "codigo"
     t.string   "nombre"
     t.string   "descripcion"
     t.string   "unidad_medida"
