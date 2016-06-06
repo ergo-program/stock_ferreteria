@@ -1,52 +1,46 @@
 // Place all the behaviors and hooks related to the matching controller here.
 // All this logic will automatically be available in application.js.
 // You can use CoffeeScript in this file: http://coffeescript.org/
-$(document).ready(function(){
+$(document).on('page:change', function() {
 
-  $(document).bind('ajaxError', 'form#new_person', function(event, jqxhr, settings, exception){
+  //Estilo para Tablas  
+  $('#tablePeople').DataTable({
+    // ajax: ...,
+    // autoWidth: false,
+    // pagingType: 'full_numbers',
+    // processing: true,
+    // serverSide: true,
 
-    // note: jqxhr.responseJSON undefined, parsing responseText instead
-    $(event.data).render_form_errors( $.parseJSON(jqxhr.responseText) );
-
+    // Optional, if you want full pagination controls.
+    // Check dataTables documentation to learn more about available options.
+    // http://datatables.net/reference/option/pagingType
+     "language": {
+          "sProcessing":    "Procesando...",
+          "sLengthMenu":    "Mostrar _MENU_ registros",
+          "sZeroRecords":   "No se encontraron resultados",
+          "sEmptyTable":    "Ningún dato disponible en esta tabla",
+          "sInfo":          "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
+          "sInfoEmpty":     "Mostrando registros del 0 al 0 de un total de 0 registros",
+          "sInfoFiltered":  "(filtrado de un total de _MAX_ registros)",
+          "sInfoPostFix":   "",
+          "sSearch":        "Buscar:",
+          "sUrl":           "",
+          "sInfoThousands":  ",",
+          "sLoadingRecords": "Cargando...",
+          "oPaginate": {
+              "sFirst":    "Primero",
+              "sLast":    "Último",
+              "sNext":    "Siguiente",
+              "sPrevious": "Anterior"
+          },
+          "oAria": {
+              "sSortAscending":  ": Activar para ordenar la columna de manera ascendente",
+              "sSortDescending": ": Activar para ordenar la columna de manera descendente"
+      }
+      },
+      "columnDefs": [
+        { "orderable": false, "targets": 5 },
+        { "searchable": false, "targets": 5 }
+    ]
   });
-
 });
-
-(function($) {
-
-  $.fn.modal_success = function(){
-    
-
-    // clear form input elements
-    // todo/note: handle textarea, select, etc
-    this.find('form input[type="text"]').val('');
-
-    // clear error state
-    this.clear_previous_errors();
-
-    // close modal
-    this.modal('hide');
-  };
-
-  $.fn.render_form_errors = function(errors){
-
-    $form = this;
-    this.clear_previous_errors();
-    model = this.data('model');
-
-    // show error messages in input form-group help-block
-    $.each(errors, function(field, messages){
-      $input = $('input[name="' + model + '[' + field + ']"]');
-      $input.closest('.form-group').addClass('has-error').find('.help-block').html( messages.join(' & ') );
-    });
-
-  };
-
-  $.fn.clear_previous_errors = function(){
-    $('.form-group.has-error', this).each(function(){
-      $('.help-block', $(this)).html('');
-      $(this).removeClass('has-error');
-    });
-  }
-
-}(jQuery));

@@ -55,9 +55,11 @@
           <% else %>
             <%= f.submit "Agregar", :class => 'btn btn-primary'%>
           <% end %>
+            <%= link_to 'Cancelar',  people_path , class: 'btn btn-default' %>
+          <% end %>
         </div>
       </div>
-    <% end %>
+      </form> 
     </div>
   </div>
 </section> 

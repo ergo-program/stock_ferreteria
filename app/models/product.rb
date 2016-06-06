@@ -19,7 +19,8 @@ class Product < ActiveRecord::Base
                      :numericality => {:only_double => false,:greater_than => 0, :message => "debe ser un numero"}
 
   validates   :precio_venta,  :length => { in: 0..10 , message: "debe tener entre 1 y 10 caracteres"},
-                             :numericality => {:only_double => false,:greater_than => 0, :message => "debe ser un numero"}
+                              :presence => {:message => "no puede estar en blanco"},
+                              :numericality => {:only_double => false,:greater_than => 0, :message => "debe ser un numero"}
 
 
   validates   :codigo,  :length => { in: 0..20 , message: "hasta 20 caracteres"},
