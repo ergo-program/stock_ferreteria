@@ -26,13 +26,6 @@
           </div>
         </div>
 
-        <div class="field col-md-4 form-group required">
-          <%= f.label 'Motivo', :class=> 'col-md-4 control-label' %>
-          <div class="col-md-7">
-            <%= f.collection_select :motive_id, Motive.all.order('descripcion'), :id, :descripcion, {prompt: "Ninguno"} ,:class => 'btn btn-default'%>
-          </div>
-        </div>
-
         <div class="field col-md-4 form-group">
           <%= f.label 'Cliente', :class=> 'col-md-4 control-label' %>
           <div class="col-md-7">
@@ -69,7 +62,8 @@
       </table>
 
       <div class="form-group">
-        <%= f.submit 'Guardar', class: 'btn btn-primary' %>
+        <%= f.submit 'Agregar', class: 'btn btn-primary' %>
+        <%= link_to 'Cancelar',  movements_path , class: 'btn btn-default margen' %>
       </div>
     <% end %>
 

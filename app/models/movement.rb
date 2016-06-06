@@ -9,10 +9,10 @@ class Movement < ActiveRecord::Base
   accepts_nested_attributes_for :d_movements, :allow_destroy => true
  
   after_create :ac_movement
+  before_destroy :bd_movement
   
   validates :fecha, :presence => {:message => "seleccione una fecha"}
-  validates :motive_id, :presence => {:message => "seleccione un motivo"}
-
+  
   validate :no_detalle
 
   protected
@@ -31,8 +31,18 @@ class Movement < ActiveRecord::Base
   def ac_movement
     self.d_movements.each do |child|
       product = Product.find(child.product_id)
-      DMovement.update(child, :precio => product.precio_venta)
+      DMovement.update(child, :precio => product.precio_venta) 
+      total = child.cantidad * child.precio
+      DMovement.update(child, :total => total)
       cantidad = product.cantidad - child.cantidad
+      Product.update(product, :cantidad => cantidad)
+    end
+  end
+
+  def bd_movement
+    self.d_movements.each do |child|
+      product = Product.find(child.product_id)
+      cantidad = product.cantidad + child.cantidad
       Product.update(product, :cantidad => cantidad)
     end
   end
