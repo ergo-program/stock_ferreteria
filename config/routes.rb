@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   resources :products
 
-  resources :movements
+  resources :movements, :except => [:edit]
 
   resources :motives
 
