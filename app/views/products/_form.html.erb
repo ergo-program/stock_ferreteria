@@ -100,10 +100,11 @@
         <% else %>
           <%= f.submit "Agregar", :class => 'btn btn-primary'%>
         <% end %>
+          <%= link_to 'Cancelar',  products_path , class: 'btn btn-default' %>
+        <% end %>
+      </div>
       </div>
       </form> 
-    <% end %>
-    </div>
   </div>
 </section> 
 
