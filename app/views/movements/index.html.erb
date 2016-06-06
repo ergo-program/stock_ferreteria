@@ -43,7 +43,7 @@
               <%= content_tag_for(:tr, @movements) do |movement| %>
               <td><%= movement.fecha %></td>
               <td><%= movement.person_nombre %></td>
-              <td><%= movement.d_movements.sum(:total) %></td>
+              <td><%= number_to_currency(movement.d_movements.sum(:total), unit: "", precision: 0, delimiter: ',') %></td>
               <td>
                   <%= link_to movement, class: 'btn btn-info', title: 'Ver', 'data-toggle' => 'tooltip', 'data-placement' => 'rigth' do %>
                   <span class= "fa fa-eye"></span>

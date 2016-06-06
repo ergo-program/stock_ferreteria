@@ -44,9 +44,9 @@
                 <td><%= product.codigo %></td>
               <td><%= disminuir(product.nombre)%></td>
               <td><%= product.costo %></td>
-              <td><%= product.precio_venta %></td>
-              <td><%= product.cantidad %></td>
-              <td><%= product.brand_nombre %></td>
+              <td><%= number_to_currency(product.precio_venta, unit: "") %></td>
+              <td><%= number_to_currency(product.cantidad, unit: "") %></td>
+              <td><%= number_to_currency(product.brand_nombre, unit: "") %></td>
               <td><%= product.category_nombre %></td>
               <td>
                   <%= link_to product, class: 'btn btn-info', title: 'Ver', 'data-toggle' => 'tooltip', 'data-placement' => 'rigth' do %>
