@@ -31,9 +31,8 @@ class Movement < ActiveRecord::Base
   def ac_movement
     self.d_movements.each do |child|
       product = Product.find(child.product_id)
-      DMovement.update(child, :precio => product.precio_venta) 
-      total = child.cantidad * child.precio
-      DMovement.update(child, :total => total)
+      auxTotal = child.cantidad * product.precio_venta
+      DMovement.update(child, :precio => product.precio_venta, :total => auxTotal) 
       cantidad = product.cantidad - child.cantidad
       Product.update(product, :cantidad => cantidad)
     end
