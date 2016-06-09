@@ -27,7 +27,7 @@ class Product < ActiveRecord::Base
                         :uniqueness => {:message => "ya existe"}, 
                         :allow_nil  => true, :allow_blank => true
 
-  validates   :canitdad_min, :length => { in: 0..10 , message: "debe tener entre 0 y 10 caracteres"}
+  validates   :cantidad, :length => { in: 1..10 , message: "debe tener entre 1 y 10 caracteres"}
 
   validates   :brand,  :presence => {:message => "no puede estar en blanco"}
 

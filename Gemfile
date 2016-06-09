@@ -57,3 +57,5 @@ gem 'bootstrap-datepicker-rails'
 
 # css calendario
 gem 'jquery-ui-rails'
+
+gem 'devise'

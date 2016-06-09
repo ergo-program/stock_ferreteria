@@ -52,8 +52,8 @@
         <%= f.label :precio_venta, "Precio de Venta", :class => 'control-label'%>
         <%= f.number_field :precio_venta,:maxlength => 10, :class => "form-control" %>
       </div>
-      <div class="field col-md-4 form-group">
-        <%= f.label :cantidad %>
+      <div class="field col-md-4 form-group required">
+        <%= f.label :cantidad, :class => 'control-label' %>
         <%= f.number_field :cantidad,:maxlength => 10, :class => "form-control" %>
       </div>
     </div>
