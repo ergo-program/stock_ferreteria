@@ -57,10 +57,15 @@ class PeopleController < ApplicationController
   # DELETE /people/1
   # DELETE /people/1.json
   def destroy
-    @person.destroy
     respond_to do |format|
-      format.html { redirect_to people_url, notice: 'El registro fue eliminado exitosamente.' }
-      format.json { head :no_content }
+      if Movement.find_by(person_id: @person.id).nil? 
+        @person.destroy
+        format.html { redirect_to people_url, notice: 'El registro fue eliminado exitosamente.' }
+        format.json { head :no_content }
+      else
+        format.html { redirect_to people_url, notice: 'No se puede eliminar, el registro esta siendo utilizado.' }
+        format.json { head :no_content }
+      end
     end
   end
 

@@ -68,10 +68,15 @@ class ProductsController < ApplicationController
   # DELETE /products/1
   # DELETE /products/1.json
   def destroy
-    @product.destroy
     respond_to do |format|
-      format.html { redirect_to products_url, notice: 'El producto fue eliminado exitosamente.' }
-      format.json { head :no_content }
+      if DMovement.find_by(product_id: @product.id).nil? 
+        @product.destroy
+        format.html { redirect_to products_url, notice: 'El producto fue eliminado exitosamente.' }
+        format.json { head :no_content }
+      else
+        format.html { redirect_to products_url, notice: 'No se puede eliminar, el producto esta siendo utilizado.' }
+        format.json { head :no_content }
+      end
     end
   end
 
