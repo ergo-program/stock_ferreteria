@@ -49,9 +49,14 @@
                   <span class= "fa fa-eye"></span>
                   <% end %>
 
+                  <%= link_to movement_path(movement, format: "pdf"), :class => 'btn btn-success' , title: 'Imprimir', 'data-toggle' => 'tooltip', 'data-placement' => 'rigth' do %>
+                    <span class= "fa fa-print"></span>
+                  <% end %>
+
                   <%= link_to movement, method: :delete, data: { confirm: 'Esta seguro que desea eliminar este registro?' }, class: 'btn btn-danger', title: 'Eliminar', 'data-toggle' => 'tooltip', 'data-placement' => 'rigth' do %>
                   <span class= "fa fa-trash"></span>
                   <% end %>
+
               </td>
               <% end %>
             </tbody>

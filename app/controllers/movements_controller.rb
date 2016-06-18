@@ -11,6 +11,17 @@ class MovementsController < ApplicationController
   # GET /movements/1
   # GET /movements/1.json
   def show
+    @movement = Movement.find(params[:id])
+    respond_to do |format|
+      format.html
+      format.pdf do
+        pdf = MovementPdf.new(@movement, view_context)
+        send_data pdf.render, filename: "movimiento_#{@movement.id}.pdf",
+                              type: "application/pdf",
+                              #page_size: "EXECUTIVE",
+                              disposition: "inline"
+      end
+    end
   end
 
   # GET /movements/new
