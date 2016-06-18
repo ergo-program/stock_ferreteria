@@ -59,3 +59,7 @@ gem 'bootstrap-datepicker-rails'
 gem 'jquery-ui-rails'
 
 gem 'devise'
+
+# reportes en pdf
+gem "prawnto_2", :require => "prawnto"
+gem 'prawn-table'
