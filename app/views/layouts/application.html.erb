@@ -19,6 +19,8 @@
 </head>
 <body class="skin-blue">
 
+  <% if user_signed_in? %>
+
   <%= render "layouts/application_header" %>
 
   <div class="wrapper row-offcanvas row-offcanvas-left">
@@ -40,6 +42,10 @@
       <%= yield %>
     </aside>
   </div>
+  <% else %>
 
+    <%= yield %>
+  
+  <% end %>
 </body>
 </html>
