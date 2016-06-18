@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
-  devise_for :models
+  devise_for :users
   resources :parameters
 
   resources :products
 
-  resources :movements
+  resources :movements, :except => [:edit]
 
   resources :motives
 

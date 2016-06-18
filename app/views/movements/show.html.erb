@@ -55,9 +55,9 @@
                 <% product = Product.find(detalle.product_id) %>
                 <td><%= product.codigo %></td>
                 <td><%= product.nombre %></td>
-                <td><%= number_to_currency(detalle.precio, unit: "") %></td>
+                <td><%= detalle.precio %></td>
                 <td><%= detalle.cantidad %></td>
-                <td><%= number_to_currency(detalle.total, unit: "") %></td>
+                <td><%= detalle.total %></td>
               <% end %>
             </tbody>
           </table>
