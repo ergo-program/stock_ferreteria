@@ -13,20 +13,29 @@
 
   <!-- sidebar menu: : style can be found in sidebar.less -->
   <ul class="sidebar-menu">
-    <%= nav_link products_path do %>
-      <i class="fa fa-angle-double-right"></i> <span>Productos</span>
+    <% if can? :read, Product %>
+      <%= nav_link products_path do %>
+        <i class="fa fa-angle-double-right"></i> <span>Productos</span>
+      <% end %>
     <% end %>
-    <%= nav_link movements_path do %>
-      <i class="fa fa-angle-double-right"></i> <span>Movimientos de Productos</span>
-    <% end %>
-    <%= nav_link people_path do %>
-      <i class="fa fa-angle-double-right"></i> <span>Clientes-Proveedores</span>
-    <% end %>
-    <%= nav_link edit_parameter_path(Parameter.first) do %>
-      <i class="fa fa-angle-double-right"></i> <span>Configuraciones</span>
+    
+    <% if can? :read, Movement %>
+      <%= nav_link movements_path do %>
+        <i class="fa fa-angle-double-right"></i> <span>Movimientos de Productos</span>
+      <% end %>
     <% end %>
 
+    <% if can? :read, Person %>
+      <%= nav_link people_path do %>
+        <i class="fa fa-angle-double-right"></i> <span>Clientes-Proveedores</span>
+      <% end %>
+    <% end %>
 
+    <% if can? :update, Parameter %>
+      <%= nav_link edit_parameter_path(Parameter.first) do %>
+        <i class="fa fa-angle-double-right"></i> <span>Configuraciones</span>
+      <% end %>
+    <% end %>
     
   </ul>
 </section>

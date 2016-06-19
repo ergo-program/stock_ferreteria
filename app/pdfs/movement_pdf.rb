@@ -4,7 +4,7 @@ class MovementPdf < Prawn::Document
     @movement = movement
     @view = view
     
-    move_down(20)
+    move_down(15)
     stroke_horizontal_rule
     move_down(20)
     movement_inicio
@@ -15,10 +15,12 @@ class MovementPdf < Prawn::Document
 
     repeat :all do
       #header
-      if Parameter.first.imagen.present?
+      margen=0
+      unless Parameter.first.imagen.file.nil?
         image "#{Rails.root}/public/#{Parameter.first.imagen}", height: 50, width: 100, at: [bounds.left, bounds.top+50]
+        margen=130
       end
-      bounding_box([bounds.left+130, bounds.top+40], :width => 200, :height => 100) do
+      bounding_box([bounds.left+margen, bounds.top+50], :width => 200, :height => 100) do
         text "#{Parameter.first.nombre}", :size => 20, :style => :bold_italic
         text "Direccion: #{Parameter.first.direccion}", :size => 8, :style => :italic
         text "Telefono: #{Parameter.first.telefono}", :size => 8, :style => :italic
@@ -39,8 +41,8 @@ class MovementPdf < Prawn::Document
     if @movement.person_id.present?
       text "Cliente: #{@movement.person_nombre}", size: 10
       text "RUC o C.I.: #{@movement.person_documento}", size: 10
-      text "Dirección: #{@movement.person_nombre}", size: 10
-      text "Teléfono: #{@movement.person_nombre}", size: 10
+      text "Dirección: #{@movement.person_direccion}", size: 10
+      text "Teléfono: #{@movement.person_telefono}", size: 10
     end
   end
 
@@ -52,7 +54,7 @@ class MovementPdf < Prawn::Document
     table movement_rows do
       row(0).font_style = :bold 
       self.position = :center
-      self.cell_style = {:font => "Helvetica", :size => 10}
+      self.cell_style = {:font => "Helvetica", :size => 10, :border_color => "878787"}
       self.header = true
       self.column_widths = [50, 200, 100, 80, 100]
     end

@@ -1,4 +1,5 @@
 class Parameter < ActiveRecord::Base
+	mount_uploader :imagen, ImagenUploader
 
 	validates   :nombre, 	:length => { in: 1..50 , message: "debe tener entre 1 y 50 caracteres"},
 						 	:presence => {:message => "no puede estar en blanco"},

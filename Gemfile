@@ -63,3 +63,9 @@ gem 'devise'
 # reportes en pdf
 gem "prawnto_2", :require => "prawnto"
 gem 'prawn-table'
+
+#roles de usuario
+gem 'cancan'
+
+#ingreso de imagenes
+gem 'carrierwave'
