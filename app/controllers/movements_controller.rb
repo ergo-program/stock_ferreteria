@@ -1,4 +1,5 @@
 class MovementsController < ApplicationController
+  load_and_authorize_resource
   before_action :set_movement, only: [:show, :edit, :update, :destroy]
 
   # GET /movements
