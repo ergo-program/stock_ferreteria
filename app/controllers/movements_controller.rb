@@ -1,5 +1,5 @@
 class MovementsController < ApplicationController
-  load_and_authorize_resource
+  load_and_authorize_resource except: :create
   before_action :set_movement, only: [:show, :edit, :update, :destroy]
 
   # GET /movements
@@ -37,6 +37,7 @@ class MovementsController < ApplicationController
   # POST /movements
   # POST /movements.json
   def create
+    authorize! :create, @movement
     @movement = Movement.new(movement_params)
    
     respond_to do |format|

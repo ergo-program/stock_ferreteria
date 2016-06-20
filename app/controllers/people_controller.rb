@@ -1,5 +1,5 @@
 class PeopleController < ApplicationController
-  load_and_authorize_resource
+  load_and_authorize_resource except: :create
   before_action :set_person, only: [:show, :edit, :update, :destroy]
 
   # GET /people
@@ -26,6 +26,7 @@ class PeopleController < ApplicationController
   # POST /people
   # POST /people.json
   def create
+    authorize! :create, @person
     @person = Person.new(person_params)
 
     respond_to do |format|
