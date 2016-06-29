@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-  load_and_authorize_resource
+  load_and_authorize_resource except: :create
   before_action :set_product, only: [:show, :edit, :update, :destroy]
 
   # GET /products
@@ -37,6 +37,7 @@ class ProductsController < ApplicationController
   # POST /products
   # POST /products.json
   def create
+    authorize! :create, @product
     @brands = Brand.all
     @categories = Category.all
     @product = Product.new(product_params)
@@ -91,4 +92,6 @@ class ProductsController < ApplicationController
     def product_params
       params.require(:product).permit(:codigo, :nombre, :descripcion, :unidad_medida, :costo, :precio_venta, :cantidad, :canitdad_min, :brand_id, :category_id)
     end
+
+
 end
